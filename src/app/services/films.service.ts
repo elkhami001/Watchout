@@ -27,6 +27,11 @@ export class FilmsService {
     console.log(film);
     this.http.post(this.localApiUrl, film).subscribe((data) => {});
   }
+  addEditFilm(film: Film){
+    console.log('adding editted film..')
+    console.log(film);
+    this.http.post(this.localApiUrl, film).subscribe((data) => {});
+  }
 
   delFilm(id: number) {
     console.log(this.localApiUrl + id + '/');

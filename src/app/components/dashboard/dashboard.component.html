@@ -17,13 +17,13 @@
           <td>{{film.description}}</td>
           <td>{{film.youtubeId}}</td>
           <td>
-              <button class="fa fa-cog" (click)="editFilm()"></button>
+              <button class="fa fa-cog" (click)="openEditFilmForm(film.name, film.description, film.youtubeId, film.id)"></button>
               <button class="fa fa-trash" (click)="delFilm(film.id)"></button>
           </td>
         </tr>
       </tbody>
     </table>
     <div clas="container-fluid">
-        <button (click)="open()" type="button" id="submit" name="submit" class="btn btn-primary pull-right">Add</button>
+        <button (click)="openAddFilmForm()" type="button" id="submit" name="submit" class="btn btn-primary pull-right">Add</button>
     </div>
 </div>

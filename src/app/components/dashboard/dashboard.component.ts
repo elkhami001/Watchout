@@ -22,27 +22,40 @@ export class DashboardComponent implements OnInit {
     films: Film[];
 
   ngOnInit() {
-    this.getAllMovies()
+    this.getAllFilms()
   }
 
-  editFilm(){
-    console.log('placeholder');
+  /// -----VIEW FUNCTIONS-----
+
+  openEditFilmForm(name: string, description: string, youtubeId: string, id: number){
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.type = 'edit';
+    modalRef.componentInstance.name = name;
+    modalRef.componentInstance.description = description;
+    modalRef.componentInstance.youtubeId = youtubeId;
+    modalRef.componentInstance.id = id;
+  }
+
+  openAddFilmForm(){
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.type = 'add';
   }
 
   delFilm(id: number){
     console.log('deleting movie with id: ' + id)
     this.filmsService.delFilm(id);
-    this.getAllMovies();
+    //this.getAllFilms();
     location.reload();
   }
 
-  getAllMovies(){
+  /// -----SERVICES-----
+
+  getAllFilms(){
     this.filmsService.getAll()
     .subscribe(films => this.films = films);
   }
 
-  open(){
-    const modalRef = this.modalService.open(ModalComponent);
-    //modalRef.componentInstance.name = 'World';
+  getSingleFilm(id: number): any{
+    return this.filmsService.getFilm(id);
   }
 }

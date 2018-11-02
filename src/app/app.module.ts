@@ -25,19 +25,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FilmDetailsComponent,
     ItemComponent,
     DashboardComponent,
-    ModalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents:[
-    ModalComponent
+    ModalComponent,
   ]
 })
 export class AppModule { }
