@@ -1,19 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { FilmListComponent } from './components/film-list/film-list.component';
-import { SafePipe } from './pipes/safe.pipe';
-import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FilmDetailsComponent } from './components/film-details/film-details.component';
 import { ItemComponent } from './components/film-list-detail/film-list-detail.component';
-import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FilmListComponent } from './components/film-list/film-list.component';
+import { HomeComponent } from './components/home/home.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { IAppState } from './components/store/app-state.interface';
+import { rootReducer } from './components/store/app.reducer';
+import { SafePipe } from './pipes/safe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -33,10 +37,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     FormsModule,
     NgbModule,
+    StoreModule.forRoot<IAppState>(rootReducer),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[
+  entryComponents: [
     ModalComponent,
   ]
 })
