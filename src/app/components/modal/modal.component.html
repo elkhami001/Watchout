@@ -1,7 +1,7 @@
 <!-- ADD MODAL -->
 
 <div class="modal-header" *ngIf="type=='add'" style="background: rgb(28, 35, 49);">
-    <h4 class="modal-title">Add a film</h4>
+    <h4 class="modal-title">Add a movie</h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -11,10 +11,10 @@
         <form role="form">
         <br style="clear:both">              
           <div class="form-group">
-            <input class="form-control" [(ngModel)]="name" id="0" name="name" placeholder="Film Name" required>
+            <input class="form-control" [(ngModel)]="name" id="0" name="name" placeholder="Movie Name" required>
           </div>
           <div class="form-group">
-              <textarea class="form-control" [(ngModel)]="description" type="textarea" name ="description" id="1" placeholder="Film Description" maxlength="140" rows="7"></textarea>                   
+              <textarea class="form-control" [(ngModel)]="description" type="textarea" name ="description" id="1" placeholder="Movie Description" maxlength="140" rows="7"></textarea>                   
           </div>
           <div class="form-group">
             <input type="text" class="form-control" [(ngModel)]="youtubeId" id="2" name="id" placeholder="Youtube ID" required>
@@ -22,7 +22,7 @@
         </form>
         <div class="modal-footer">
             <button type="button" class="btn btn-dark" (click)="activeModal.close('Close click')">Close</button>
-            <button (click)="postFilmForm(name, description, youtubeId)" type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit</button>
+            <button (click)="postVideo(name, description, youtubeId)" type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit</button>
        </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
 
 <!-- EDIT MODAL -->
 <div class="modal-header" *ngIf="type=='edit'" style="background: rgb(28, 35, 49);">
-        <h4 class="modal-title">Edit Film</h4>
+        <h4 class="modal-title">Edit Video</h4>
         <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -40,10 +40,10 @@
             <form role="form">
             <br style="clear:both">              
               <div class="form-group">
-                <input class="form-control" [(ngModel)]="name" id="0" name="name" placeholder="Film Name" required>
+                <input class="form-control" [(ngModel)]="name" id="0" name="name" placeholder="Movie Name" required>
               </div>
               <div class="form-group">
-                  <textarea class="form-control" [(ngModel)]="description" type="textarea" name ="description" id="1" placeholder="Film Description" maxlength="140" rows="7"></textarea>                   
+                  <textarea class="form-control" [(ngModel)]="description" type="textarea" name ="description" id="1" placeholder="Movie Description" maxlength="140" rows="7"></textarea>                   
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" [(ngModel)]="youtubeId" id="2" name="id" placeholder="Youtube ID" required>
@@ -51,7 +51,7 @@
             </form>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dark" (click)="activeModal.close('Close click')">Close</button>
-                <button (click)="postEditFilmForm(name, description, youtubeId, id)" type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit</button>
+                <button (click)="editVideo(name, description, youtubeId, id)" type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit</button>
            </div>
         </div>
     </div>

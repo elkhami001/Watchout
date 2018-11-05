@@ -1,29 +1,29 @@
 <div class="container">
-  <h3>Film list</h3>
+  <h3>Movies list</h3>
   <table class="table table-hover" cellspacing="0" style="background-color: #eceeef;">
     <thead>
       <tr>
         <th></th>
-        <th>Name</th>
+        <th>Title</th>
         <th>Description</th>
         <th>Youtube ID</th>
         <th>Tools</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let film of films; index as i">
+      <tr *ngFor="let video of videos; index as i">
         <td>{{i + 1}}</td>
-        <td>{{film.name}}</td>
-        <td>{{film.description}}</td>
-        <td>{{film.youtubeId}}</td>
+        <td>{{video.title}}</td>
+        <td>{{video.description}}</td>
+        <td>{{video.youtubeId}}</td>
         <td>
-          <button class="fa fa-cog" (click)="openEditFilmForm(film.name, film.description, film.youtubeId, film.id)"></button>
-          <button class="fa fa-trash" (click)="delFilm(film.id)"></button>
+          <button class="fa fa-cog" (click)="editVideo(video.title, video.description, video.youtubeId, video.id)"></button>
+          <button class="fa fa-trash" (click)="deleteVideo(video.id)"></button>
         </td>
       </tr>
     </tbody>
   </table>
   <div clas="container-fluid">
-    <button (click)="openAddFilmForm()" type="button" id="submit" name="submit" class="btn btn-primary pull-right">Add</button>
+    <button (click)="addVideo()" type="button" id="submit" name="submit" class="btn btn-primary pull-right">Add</button>
   </div>
 </div>

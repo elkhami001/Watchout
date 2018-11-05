@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Film } from '../../models/film';
-import { FilmsService } from '../../services/films.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Video } from '../../models/video';
+import { VideosService } from '../../services/video.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../modal/modal.component';
 
@@ -13,49 +12,46 @@ import { ModalComponent } from '../modal/modal.component';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private filmsService: FilmsService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
+    private videosService: VideosService,
     private modalService: NgbModal
     ) { }
 
-    films: Film[];
+    videos: Video[];
 
   ngOnInit() {
-    this.getAllFilms()
+    this.getAllVideos()
   }
 
   /// -----VIEW FUNCTIONS-----
 
-  openEditFilmForm(name: string, description: string, youtubeId: string, id: number){
+  editVideo(title: string, description: string, youtubeId: string, id: number){
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.type = 'edit';
-    modalRef.componentInstance.name = name;
+    modalRef.componentInstance.title = title;
     modalRef.componentInstance.description = description;
     modalRef.componentInstance.youtubeId = youtubeId;
     modalRef.componentInstance.id = id;
   }
 
-  openAddFilmForm(){
+  addVideo(){
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.type = 'add';
   }
 
-  delFilm(id: number){
-    console.log('deleting movie with id: ' + id)
-    this.filmsService.delFilm(id);
-    //this.getAllFilms();
+  deleteVideo(id: number){
+    console.log('deleting video with id: ' + id)
+    this.videosService.deleteVideo(id);
     location.reload();
   }
 
   /// -----SERVICES-----
 
-  getAllFilms(){
-    this.filmsService.getAll()
-    .subscribe(films => this.films = films);
+  getAllVideos(){
+    this.videosService.getAll()
+    .subscribe(videos => this.videos = videos);
   }
 
-  getSingleFilm(id: number): any{
-    return this.filmsService.getFilm(id);
+  getVideo(id: number): any{
+    return this.videosService.getVideo(id);
   }
 }

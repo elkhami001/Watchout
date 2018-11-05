@@ -1,7 +1,7 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Film } from 'src/app/models/film';
-import { FilmsService } from 'src/app/services/films.service';
+import { Video } from 'src/app/models/video';
+import { VideosService } from 'src/app/services/video.service';
 
 @Component({
   selector: 'app-modal',
@@ -9,42 +9,41 @@ import { FilmsService } from 'src/app/services/films.service';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-  // @Input() name: any;
-  films: Film[];
-  film= new Film();
+  videos: Video[];
+  video = new Video();
 
   mayo = 'WAAROM KAN IK DIT NIET BINDEN!!!';
 
   constructor(
     public activeModal: NgbActiveModal,
-    private filmsService: FilmsService
+    private videosService: VideosService
   ) { }
 
   ngOnInit() {
-    this.getAllMovies();
+    this.getAllVideos();
   }
 
-  postFilmForm(name: string, description: string, youtubeId: string){
-    let film = new Film();
-    film.name = name;
-    film.description = description;
-    film.youtubeId = youtubeId;
-    this.filmsService.addFilm(film);
+  postVideo(title: string, description: string, youtubeId: string){
+    let video = new Video();
+    video.title = title;
+    video.description = description;
+    video.youtubeId = youtubeId;
+    this.videosService.addVideo(video);
     location.reload();
   }
-  postEditFilmForm(name: string, description: string, youtubeId: string, id: number){
-    let film = new Film();
-    film.name = name;
-    film.description = description;
-    film.youtubeId = youtubeId;
-    film.id = id;
-    console.log(name + description + youtubeId + id);
-    this.filmsService.addEditFilm(film);
+  editVideo(title: string, description: string, youtubeId: string, id: number){
+    let video = new Video();
+    video.title = title;
+    video.description = description;
+    video.youtubeId = youtubeId;
+    video.id = id;
+    console.log(title + description + youtubeId + id);
+    this.videosService.editVideo(video);
     location.reload();
   }
 
-  getAllMovies(){
-    this.filmsService.getAll()
-    .subscribe(films => this.films = films);
+  getAllVideos(){
+    this.videosService.getAll()
+    .subscribe(videos => this.videos = videos);
   }
 }

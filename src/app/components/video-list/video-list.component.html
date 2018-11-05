@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 router" [routerLink]="['/detail', video.id]" *ngFor="let video of videos">
+      <div class="movie-card">
+        <div class="movie-header youtubeImg" [ngStyle]="{'background-image': 'url(' + getYoutubeImg(video.youtubeId) + ')'}"></div>
+        <div class="movie-content">
+          {{video.title}}
+          <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

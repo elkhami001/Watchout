@@ -1,5 +1,5 @@
-import { Film } from 'src/app/models/film';
+import { Video } from 'src/app/models/video';
 
 export interface IAppState {
-  films: Film[];
+  videos: Video[];
 }

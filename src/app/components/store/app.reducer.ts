@@ -1,8 +1,9 @@
 import { ActionReducerMap } from '@ngrx/store';
 import { IAppState } from './app-state.interface';
-import { filmsRecuder } from './films/films.reducer';
+import { videosReducer } from './video/video.reducer';
+
 
 
 export const rootReducer: ActionReducerMap<IAppState> = {
-  films: filmsRecuder
+  videos: videosReducer
 };
