@@ -1,23 +1,25 @@
 <div class="container">
   <div class="row">
-      <div class="col-sm-3 router" [routerLink]="['/detail', film.id]" *ngFor="let film of films" >      
-        <div class="movie-card">
-          <div class="movie-header youtubeImg" [ngStyle]="{'background-image': 'url(' + getYoutubeImg(film.youtubeId) + ')'}"></div>
+    <div class="col-sm-3 router" [routerLink]="['/detail', film.id]" *ngFor="let film of films">
+      <div class="movie-card">
+        <div class="movie-header youtubeImg" [ngStyle]="{'background-image': 'url(' + getYoutubeImg(film.youtubeId) + ')'}"></div>
         <div class="movie-content">
           {{film.name}}
           <div>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
           </div>
-        </div><!--movie-content-->
-      </div><!--movie-card-->
-    </div>      
-</div>
+        </div>
+        <!--movie-content-->
+      </div>
+      <!--movie-card-->
+    </div>
+  </div>
 
-<!-- 
+  <!-- 
 <a [routerLink]="['/detail', film.id]"><h2>{{film.name}}</h2></a>
 <iframe width="auto" height="auto" [src]="getYoutubeUrl(film.youtubeId) | safe"></iframe>
 <h5>{{film.description}}</h5>

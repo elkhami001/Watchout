@@ -9,10 +9,10 @@ import { FilmListComponent } from './components/film-list/film-list.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { FilmDetailsComponent } from './components/film-details/film-details.component';
-import { ItemComponent } from './components/film-list/item/item.component';
+import { ItemComponent } from './components/film-list-detail/film-list-detail.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ModalComponent } from './components/dashboard/modal/modal.component';
+import { ModalComponent } from './components/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({

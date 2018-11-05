@@ -1,16 +1,15 @@
-
 <div class="container">
-    <div class="container-fluid" style="background: rgb(28, 35, 49);">
-            <h1>{{film.name}}</h1>
-    </div>
+    <h1>{{film.name}}</h1>
     <div class="container-fluid" style="background-color: #eceeef;">
         <h3>Description</h3>
         <h6>{{film.description}}</h6>
-        <div class="embed-responsive embed-responsive-16by9"> <iframe   width="100%"   [src]="getYoutubeUrl(film.youtubeId) | safe"   frameborder="0"    allowfullscreen> </iframe> </div>
-        <nav>
-             <a routerLink="/">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe width="100%" [src]="getYoutubeUrl(film.youtubeId) | safe" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="container-fluid">
+            <a routerLink="/">
                 <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Back</button>
             </a>
-        </nav>
+        </div>
     </div>
 </div>

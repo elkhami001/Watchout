@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  selector: 'app-film-list-detail',
+  templateUrl: './film-list-detail.component.html',
+  styleUrls: ['./film-list-detail.component.scss']
 })
 export class ItemComponent implements OnInit {
   @Input() film: object[];
