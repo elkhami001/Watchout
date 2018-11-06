@@ -51,6 +51,10 @@ export class DashboardComponent implements OnInit {
     .subscribe(videos => this.videos = videos);
   }
 
+  getAllVideosR(){
+    this.videosService.getAll();
+  }
+
   getVideo(id: number): any{
     return this.videosService.getVideo(id);
   }
